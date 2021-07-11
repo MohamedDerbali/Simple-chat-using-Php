@@ -1,0 +1,46 @@
+<?php
+//session_start(){
+$_SESSION['xDDDDD']=$_POST['username'];
+
+include 'Classes/userC.php';
+include 'Entities/user.php';
+$user=new UserC();
+$use=$user->afficheruser();
+    $usa=$user->affiche($_SESSION['xDDDDD']);
+?>
+<html>
+<head>
+<title>Chat box</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+</head>
+    <body>
+    <div class="chatbox">
+        <div class="chatlogs">
+       <?php
+            foreach($usa as $key){
+            ?> 
+            <div class="chat friend">
+            <div class="user-photo"><img src="user1.jpg"></div>
+           <p class="message"><?php echo  $key['nom']; ?></p>
+            
+            </div>
+        <?php   } ?>
+             <div class="chat self">
+                 <div class="user-photo"><img src="user1.jpg"></div>
+           <p class="message">heyy</p>
+        
+            
+            </div> 
+           
+        </div>
+        <div class="chat-form">
+            <textarea placeholder=" Write your Message Here .... "></textarea>
+                <button>Send</button>
+            </div>
+        </div>
+    
+    </body>
+
+
+</html>
+<?php //} ?>
